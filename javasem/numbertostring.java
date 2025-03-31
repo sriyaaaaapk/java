@@ -1,4 +1,8 @@
 package javasem;
+import java.util.Scanner;
+import java.util.HashSet;
+import java.util.Set;
+
 public class numbertostring {
 	
 	static void numeric(String S) {
@@ -87,7 +91,23 @@ public class numbertostring {
     }
     return new String(arr);
 }
-	
+	//Java Program to Find All Unique Substrings of Length k
+	public static Set<String> findUniqueSubstrings(String s, int k) {
+        Set<String> uniqueSubstrings = new HashSet<>();
+        
+        // Edge case: if the string is smaller than k
+        if (s == null || s.length() < k || k <= 0) {
+            return uniqueSubstrings;
+        }
+        
+        // Sliding window technique
+        for (int i = 0; i <= s.length() - k; i++) {
+            String substring = s.substring(i, i + k);
+            uniqueSubstrings.add(substring);
+        }
+        
+        return uniqueSubstrings;
+    }
 	static void swap(String S) {
 		String[] words = S.split(" ");
 	    if (words.length < 2) System.out.println(S);
@@ -110,9 +130,27 @@ public class numbertostring {
 	}
 
 	public static void main(String[] args)
-	{ String S="I am sriya born on 1/10/2005";
+	{ Scanner scanner = new Scanner(System.in);
+    
+    System.out.print("Enter a string: ");
+    String inputString = scanner.nextLine();
+    
+    System.out.print("Enter the length of substrings (k): ");
+    int k = scanner.nextInt();
+    
+    Set<String> result = findUniqueSubstrings(inputString, k); //Enter the length of substrings (k): 3
+    //Unique substrings of length 3: [ana, nan, ban] 
+    //Note that ana and nan appear twice, but the set ensures they're stored once.)
+    
+    if (result.isEmpty()) {
+        System.out.println("No valid substrings of length " + k);
+    } else {
+        System.out.println("Unique substrings of length " + k + ": " + result);
+    }
+		
+		/*String S="I am sriya born on 1/10/2005";
 	numeric(S);
-	/*  String S="aabbbcccc";
+	  String S="aabbbcccc";
 		System.out.println(removeConsecutiveDuplicates(S));
 		checkStartEnd(S.toLowerCase());
 		("Original Sentence: " + S);
@@ -161,3 +199,10 @@ public class StringToInteger {
     }
 }
 */
+
+/*smail ^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$
+phone ^\(\d{3}\) \d{3}-\d{4}$
+dob ^(0[1-9]|1[0-9]|2[0-9]|3[01])/(0[1-9]|1[0-2])/\d{4}$/
+Match a String that Starts with a Specific Word ^start.*
+ends .*end$
+(?i).*example.* -->Matches any string that contains example, regardless of case.*/
