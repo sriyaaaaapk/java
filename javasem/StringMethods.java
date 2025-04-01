@@ -244,11 +244,15 @@ public class StringMethods {
 	    return -1; // Return -1 if the character appears less than n times
 	}
 	public static void main(String[] args) {
+		
+/*		String sentence = "sriya bakes a cake and the cake rocks.";
+        System.out.println("Most frequent word: " + findMostFrequentWord(sentence));
+		System.out.println(pigLatin("hello"));
 		String S = "apple banana apple orange apple banana";
 	    System.out.println(wordcount(S, "apple"));  // Output: 3
 	    System.out.println(wordcount(S, "banana")); // Output: 2
 	    System.out.println(wordcount(S, "grape"));  // Output: 0
-/*		 System.out.println(nthIndex("banana", 'a', 2));  // Output: 3 (2nd occurrence)
+		 System.out.println(nthIndex("banana", 'a', 2));  // Output: 3 (2nd occurrence)
 		    System.out.println(nthIndex("banana", 'a', 3));  // Output: 5 (3rd occurrence)
 		    System.out.println(nthIndex("banana", 'a', 4));
 		lastindex("banana");
@@ -256,8 +260,7 @@ public class StringMethods {
 	     System.out.println(longestPalindrome("cbbd"));  // Output: "bb"
 		String input = "aaabbc";
         System.out.println("Compressed: " + compress(input));
-		String sentence = "sriya bakes a cake and a cake.";
-        System.out.println("Most frequent word: " + findMostFrequentWord(sentence));
+		
 		splitString("HelloWorld", 3);
 		System.out.println(pigLatin("hello world")); // Output: "ellohay orldway"
 		
